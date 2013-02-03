@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A08A47916A3DFDB0005359F /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A08A47816A3DFDB0005359F /* PhotoViewController.m */; };
+		2A08A48616A5E8FE0005359F /* PhotoScheme.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 2A08A48516A5E8FE0005359F /* PhotoScheme.xcdatamodel */; };
+		2A08A48C16A5FD2A0005359F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A08A48B16A5FD2A0005359F /* MapViewController.m */; };
+		2A3C451516B0943100801E94 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3C451416B0943100801E94 /* MainTabBarController.m */; };
+		2A3C451716B0EED700801E94 /* redheart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3C451616B0EED700801E94 /* redheart.png */; };
+		2A3C451916B0EEF000801E94 /* greyheart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3C451816B0EEF000801E94 /* greyheart.png */; };
+		2A61E4BB16AC84F200A8E9C5 /* PhotoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61E4BA16AC84F200A8E9C5 /* PhotoInfo.m */; };
+		2AAE9B1816B89BBF0013F0E8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAE9B1716B89BBF0013F0E8 /* MessageUI.framework */; };
+		2AAE9B2316BA36A20013F0E8 /* PhotoInfo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAE9B2216BA36A20013F0E8 /* PhotoInfo.sqlite */; };
+		2AAEEFFB16B207520028215C /* greyheartSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEEFFA16B207520028215C /* greyheartSmall.png */; };
+		2AAEEFFE16B207630028215C /* redheartSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEEFFD16B207630028215C /* redheartSmall.png */; };
+		2AAEF00016B5EF280028215C /* shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEEFFF16B5EF280028215C /* shared.png */; };
+		2AAEF00316B7110C0028215C /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEF00216B7110B0028215C /* PopoverViewController.m */; };
+		2AAEF00D16B72AE20028215C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAEF00C16B72AE20028215C /* FacebookSDK.framework */; };
+		2AAEF00F16B72BC10028215C /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEF00E16B72BC10028215C /* FacebookSDKResources.bundle */; };
+		2AAEF01116B72C300028215C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAEF01016B72C300028215C /* AdSupport.framework */; };
+		2AAEF01316B72C380028215C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAEF01216B72C380028215C /* Accounts.framework */; };
+		2AAEF01516B72C420028215C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAEF01416B72C420028215C /* Social.framework */; };
+		2AD1BA0716993744001593CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1BA0616993744001593CD /* Default-568h@2x.png */; };
+		2AE68F0C169FA58700148249 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE68F0B169FA58700148249 /* CoreLocation.framework */; };
+		2AE68F0F169FA5B500148249 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE68F0E169FA5B500148249 /* MapKit.framework */; };
+		2AE68F1116A08EF200148249 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE68F1016A08EF200148249 /* location.png */; };
+		2AE68F1616A0923600148249 /* pointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE68F1516A0923600148249 /* pointAnnotation.m */; };
+		2CFF27B316964EED003F0CA5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFF27B216964EED003F0CA5 /* UIKit.framework */; };
+		2CFF27B516964EED003F0CA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFF27B416964EED003F0CA5 /* Foundation.framework */; };
+		2CFF27B716964EED003F0CA5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFF27B616964EED003F0CA5 /* CoreGraphics.framework */; };
+		2CFF27BD16964EED003F0CA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CFF27BB16964EED003F0CA5 /* InfoPlist.strings */; };
+		2CFF27BF16964EEE003F0CA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF27BE16964EED003F0CA5 /* main.m */; };
+		2CFF27C316964EEE003F0CA5 /* PlanetViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF27C216964EEE003F0CA5 /* PlanetViewAppDelegate.m */; };
+		2CFF27C616964EEE003F0CA5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CFF27C416964EEE003F0CA5 /* MainStoryboard.storyboard */; };
+		2CFF27D016964FBD003F0CA5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CFF27CF16964FBD003F0CA5 /* CoreData.framework */; };
+		2CFF27D6169650AD003F0CA5 /* PhotoOwner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF27D5169650AD003F0CA5 /* PhotoOwner.m */; };
+		2CFF27E7169655F3003F0CA5 /* ThumbNailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF27E6169655F3003F0CA5 /* ThumbNailViewController.m */; };
+		2CFF27EA1696562B003F0CA5 /* ShowLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF27E91696562B003F0CA5 /* ShowLocationViewController.m */; };
+		2CFF27ED16965756003F0CA5 /* FetchPhotoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF27EC16965756003F0CA5 /* FetchPhotoResult.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A08A47716A3DFDB0005359F /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		2A08A47816A3DFDB0005359F /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		2A08A48516A5E8FE0005359F /* PhotoScheme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoScheme.xcdatamodel; sourceTree = "<group>"; };
+		2A08A48A16A5FD290005359F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		2A08A48B16A5FD2A0005359F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		2A3C451316B0943100801E94 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		2A3C451416B0943100801E94 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		2A3C451616B0EED700801E94 /* redheart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redheart.png; sourceTree = "<group>"; };
+		2A3C451816B0EEF000801E94 /* greyheart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyheart.png; sourceTree = "<group>"; };
+		2A61E4B916AC84F100A8E9C5 /* PhotoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoInfo.h; sourceTree = "<group>"; };
+		2A61E4BA16AC84F200A8E9C5 /* PhotoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoInfo.m; sourceTree = "<group>"; };
+		2AAE9B1716B89BBF0013F0E8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2AAE9B2216BA36A20013F0E8 /* PhotoInfo.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = PhotoInfo.sqlite; path = Panoramio/PhotoInfo.sqlite; sourceTree = "<group>"; };
+		2AAEEFFA16B207520028215C /* greyheartSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyheartSmall.png; sourceTree = "<group>"; };
+		2AAEEFFD16B207630028215C /* redheartSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redheartSmall.png; sourceTree = "<group>"; };
+		2AAEEFFF16B5EF280028215C /* shared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shared.png; sourceTree = "<group>"; };
+		2AAEF00116B7110B0028215C /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		2AAEF00216B7110B0028215C /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		2AAEF00C16B72AE20028215C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		2AAEF00E16B72BC10028215C /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		2AAEF01016B72C300028215C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		2AAEF01216B72C380028215C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		2AAEF01416B72C420028215C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		2AD1BA0616993744001593CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2AE68F0B169FA58700148249 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2AE68F0E169FA5B500148249 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2AE68F1016A08EF200148249 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		2AE68F1416A0923600148249 /* pointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointAnnotation.h; sourceTree = "<group>"; };
+		2AE68F1516A0923600148249 /* pointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pointAnnotation.m; sourceTree = "<group>"; };
+		2CFF27AE16964EED003F0CA5 /* Panoramio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Panoramio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CFF27B216964EED003F0CA5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2CFF27B416964EED003F0CA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2CFF27B616964EED003F0CA5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2CFF27BA16964EED003F0CA5 /* Panoramio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panoramio-Info.plist"; sourceTree = "<group>"; };
+		2CFF27BC16964EED003F0CA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2CFF27BE16964EED003F0CA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2CFF27C016964EEE003F0CA5 /* Panoramio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Panoramio-Prefix.pch"; sourceTree = "<group>"; };
+		2CFF27C116964EEE003F0CA5 /* PlanetViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlanetViewAppDelegate.h; sourceTree = "<group>"; };
+		2CFF27C216964EEE003F0CA5 /* PlanetViewAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanetViewAppDelegate.m; sourceTree = "<group>"; };
+		2CFF27C516964EEE003F0CA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2CFF27CF16964FBD003F0CA5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2CFF27D4169650AD003F0CA5 /* PhotoOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoOwner.h; sourceTree = "<group>"; };
+		2CFF27D5169650AD003F0CA5 /* PhotoOwner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoOwner.m; sourceTree = "<group>"; };
+		2CFF27DE1696519B003F0CA5 /* spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = spinner.gif; sourceTree = "<group>"; };
+		2CFF27E5169655F3003F0CA5 /* ThumbNailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbNailViewController.h; sourceTree = "<group>"; };
+		2CFF27E6169655F3003F0CA5 /* ThumbNailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbNailViewController.m; sourceTree = "<group>"; };
+		2CFF27E81696562B003F0CA5 /* ShowLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowLocationViewController.h; path = ../ShowLocationViewController.h; sourceTree = "<group>"; };
+		2CFF27E91696562B003F0CA5 /* ShowLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowLocationViewController.m; path = ../ShowLocationViewController.m; sourceTree = "<group>"; };
+		2CFF27EB16965756003F0CA5 /* FetchPhotoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchPhotoResult.h; sourceTree = "<group>"; };
+		2CFF27EC16965756003F0CA5 /* FetchPhotoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchPhotoResult.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CFF27AB16964EED003F0CA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AAEF01516B72C420028215C /* Social.framework in Frameworks */,
+				2AAE9B1816B89BBF0013F0E8 /* MessageUI.framework in Frameworks */,
+				2AAEF01316B72C380028215C /* Accounts.framework in Frameworks */,
+				2AAEF01116B72C300028215C /* AdSupport.framework in Frameworks */,
+				2AE68F0F169FA5B500148249 /* MapKit.framework in Frameworks */,
+				2AE68F0C169FA58700148249 /* CoreLocation.framework in Frameworks */,
+				2CFF27D016964FBD003F0CA5 /* CoreData.framework in Frameworks */,
+				2CFF27B316964EED003F0CA5 /* UIKit.framework in Frameworks */,
+				2CFF27B516964EED003F0CA5 /* Foundation.framework in Frameworks */,
+				2CFF27B716964EED003F0CA5 /* CoreGraphics.framework in Frameworks */,
+				2AAEF00D16B72AE20028215C /* FacebookSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CFF27A316964EED003F0CA5 = {
+			isa = PBXGroup;
+			children = (
+				2AAE9B2216BA36A20013F0E8 /* PhotoInfo.sqlite */,
+				2AAE9B1716B89BBF0013F0E8 /* MessageUI.framework */,
+				2AAEF01416B72C420028215C /* Social.framework */,
+				2AAEF01216B72C380028215C /* Accounts.framework */,
+				2AAEF01016B72C300028215C /* AdSupport.framework */,
+				2AE68F0E169FA5B500148249 /* MapKit.framework */,
+				2AE68F0B169FA58700148249 /* CoreLocation.framework */,
+				2AD1BA0616993744001593CD /* Default-568h@2x.png */,
+				2CFF27CF16964FBD003F0CA5 /* CoreData.framework */,
+				2CFF27B816964EED003F0CA5 /* Panoramio */,
+				2CFF27B116964EED003F0CA5 /* Frameworks */,
+				2CFF27AF16964EED003F0CA5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2CFF27AF16964EED003F0CA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CFF27AE16964EED003F0CA5 /* Panoramio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CFF27B116964EED003F0CA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AAEF00E16B72BC10028215C /* FacebookSDKResources.bundle */,
+				2AAEF00C16B72AE20028215C /* FacebookSDK.framework */,
+				2CFF27B216964EED003F0CA5 /* UIKit.framework */,
+				2CFF27B416964EED003F0CA5 /* Foundation.framework */,
+				2CFF27B616964EED003F0CA5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CFF27B816964EED003F0CA5 /* Panoramio */ = {
+			isa = PBXGroup;
+			children = (
+				2AE68F1416A0923600148249 /* pointAnnotation.h */,
+				2AE68F1516A0923600148249 /* pointAnnotation.m */,
+				2A08A48516A5E8FE0005359F /* PhotoScheme.xcdatamodel */,
+				2A61E4B916AC84F100A8E9C5 /* PhotoInfo.h */,
+				2A61E4BA16AC84F200A8E9C5 /* PhotoInfo.m */,
+				2CFF27E81696562B003F0CA5 /* ShowLocationViewController.h */,
+				2CFF27E91696562B003F0CA5 /* ShowLocationViewController.m */,
+				2CFF27C116964EEE003F0CA5 /* PlanetViewAppDelegate.h */,
+				2CFF27C216964EEE003F0CA5 /* PlanetViewAppDelegate.m */,
+				2CFF27EB16965756003F0CA5 /* FetchPhotoResult.h */,
+				2CFF27EC16965756003F0CA5 /* FetchPhotoResult.m */,
+				2CFF27C416964EEE003F0CA5 /* MainStoryboard.storyboard */,
+				2AAEF00116B7110B0028215C /* PopoverViewController.h */,
+				2AAEF00216B7110B0028215C /* PopoverViewController.m */,
+				2AAEEFFD16B207630028215C /* redheartSmall.png */,
+				2AAEEFFA16B207520028215C /* greyheartSmall.png */,
+				2A3C451816B0EEF000801E94 /* greyheart.png */,
+				2A3C451616B0EED700801E94 /* redheart.png */,
+				2A3C451316B0943100801E94 /* MainTabBarController.h */,
+				2A3C451416B0943100801E94 /* MainTabBarController.m */,
+				2A08A48A16A5FD290005359F /* MapViewController.h */,
+				2A08A48B16A5FD2A0005359F /* MapViewController.m */,
+				2A08A47716A3DFDB0005359F /* PhotoViewController.h */,
+				2A08A47816A3DFDB0005359F /* PhotoViewController.m */,
+				2AAEEFFF16B5EF280028215C /* shared.png */,
+				2CFF27D4169650AD003F0CA5 /* PhotoOwner.h */,
+				2CFF27D5169650AD003F0CA5 /* PhotoOwner.m */,
+				2CFF27DE1696519B003F0CA5 /* spinner.gif */,
+				2CFF27E5169655F3003F0CA5 /* ThumbNailViewController.h */,
+				2CFF27E6169655F3003F0CA5 /* ThumbNailViewController.m */,
+				2CFF27B916964EED003F0CA5 /* Supporting Files */,
+			);
+			path = Panoramio;
+			sourceTree = "<group>";
+		};
+		2CFF27B916964EED003F0CA5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AE68F1016A08EF200148249 /* location.png */,
+				2CFF27BA16964EED003F0CA5 /* Panoramio-Info.plist */,
+				2CFF27BB16964EED003F0CA5 /* InfoPlist.strings */,
+				2CFF27BE16964EED003F0CA5 /* main.m */,
+				2CFF27C016964EEE003F0CA5 /* Panoramio-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CFF27AD16964EED003F0CA5 /* Panoramio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CFF27CC16964EEE003F0CA5 /* Build configuration list for PBXNativeTarget "Panoramio" */;
+			buildPhases = (
+				2CFF27AA16964EED003F0CA5 /* Sources */,
+				2CFF27AB16964EED003F0CA5 /* Frameworks */,
+				2CFF27AC16964EED003F0CA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Panoramio;
+			productName = Panoramio;
+			productReference = 2CFF27AE16964EED003F0CA5 /* Panoramio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2CFF27A516964EED003F0CA5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PlanetView;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 2CFF27A816964EED003F0CA5 /* Build configuration list for PBXProject "Panoramio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2CFF27A316964EED003F0CA5;
+			productRefGroup = 2CFF27AF16964EED003F0CA5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2CFF27AD16964EED003F0CA5 /* Panoramio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2CFF27AC16964EED003F0CA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CFF27BD16964EED003F0CA5 /* InfoPlist.strings in Resources */,
+				2CFF27C616964EEE003F0CA5 /* MainStoryboard.storyboard in Resources */,
+				2AD1BA0716993744001593CD /* Default-568h@2x.png in Resources */,
+				2AE68F1116A08EF200148249 /* location.png in Resources */,
+				2A3C451716B0EED700801E94 /* redheart.png in Resources */,
+				2A3C451916B0EEF000801E94 /* greyheart.png in Resources */,
+				2AAEEFFB16B207520028215C /* greyheartSmall.png in Resources */,
+				2AAEEFFE16B207630028215C /* redheartSmall.png in Resources */,
+				2AAEF00016B5EF280028215C /* shared.png in Resources */,
+				2AAEF00F16B72BC10028215C /* FacebookSDKResources.bundle in Resources */,
+				2AAE9B2316BA36A20013F0E8 /* PhotoInfo.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CFF27AA16964EED003F0CA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CFF27BF16964EEE003F0CA5 /* main.m in Sources */,
+				2CFF27C316964EEE003F0CA5 /* PlanetViewAppDelegate.m in Sources */,
+				2CFF27D6169650AD003F0CA5 /* PhotoOwner.m in Sources */,
+				2CFF27E7169655F3003F0CA5 /* ThumbNailViewController.m in Sources */,
+				2CFF27EA1696562B003F0CA5 /* ShowLocationViewController.m in Sources */,
+				2CFF27ED16965756003F0CA5 /* FetchPhotoResult.m in Sources */,
+				2AE68F1616A0923600148249 /* pointAnnotation.m in Sources */,
+				2A08A47916A3DFDB0005359F /* PhotoViewController.m in Sources */,
+				2A08A48616A5E8FE0005359F /* PhotoScheme.xcdatamodel in Sources */,
+				2A08A48C16A5FD2A0005359F /* MapViewController.m in Sources */,
+				2A61E4BB16AC84F200A8E9C5 /* PhotoInfo.m in Sources */,
+				2A3C451516B0943100801E94 /* MainTabBarController.m in Sources */,
+				2AAEF00316B7110C0028215C /* PopoverViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2CFF27BB16964EED003F0CA5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CFF27BC16964EED003F0CA5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2CFF27C416964EEE003F0CA5 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CFF27C516964EEE003F0CA5 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CFF27CA16964EEE003F0CA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2CFF27CB16964EEE003F0CA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CFF27CD16964EEE003F0CA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Panoramio/Panoramio-Prefix.pch";
+				INFOPLIST_FILE = "Panoramio/Panoramio-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2CFF27CE16964EEE003F0CA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Panoramio/Panoramio-Prefix.pch";
+				INFOPLIST_FILE = "Panoramio/Panoramio-Info.plist";
+				OTHER_LDFLAGS = "-lsqlite3.0";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CFF27A816964EED003F0CA5 /* Build configuration list for PBXProject "Panoramio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CFF27CA16964EEE003F0CA5 /* Debug */,
+				2CFF27CB16964EEE003F0CA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CFF27CC16964EEE003F0CA5 /* Build configuration list for PBXNativeTarget "Panoramio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CFF27CD16964EEE003F0CA5 /* Debug */,
+				2CFF27CE16964EEE003F0CA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2CFF27A516964EED003F0CA5 /* Project object */;
+}
