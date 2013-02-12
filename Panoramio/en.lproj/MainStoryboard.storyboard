@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ye0-xT-hEX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ye0-xT-hEX">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Location-->
         <scene sceneID="I9y-We-V02">
             <objects>
                 <navigationController wantsFullScreenLayout="YES" definesPresentationContext="YES" id="zqz-US-lw0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="4cH-EG-wB9"/>
+                    <tabBarItem key="tabBarItem" title="Location" image="MapDrop_s.png" id="4cH-EG-wB9"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="FoX-9l-N6J">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -36,10 +35,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="map" id="2eo-d6-BwG"/>
+                    <tabBarItem key="tabBarItem" title="map" image="globe_.png" id="2eo-d6-BwG"/>
                     <navigationItem key="navigationItem" id="Ja4-su-ln9"/>
                     <connections>
-                        <outlet property="mapView" destination="aca-Tu-Tsn" id="hha-EH-5PJ"/>
+                        <outlet property="mapView" destination="aca-Tu-Tsn" id="Rp2-u6-bGJ"/>
                         <segue destination="gs7-Gj-A2m" kind="push" identifier="MapToPhoto" id="n0z-5R-i2c"/>
                     </connections>
                 </viewController>
@@ -47,11 +46,11 @@
             </objects>
             <point key="canvasLocation" x="1245" y="511"/>
         </scene>
-        <!--Navigation Controller - Thumbnail-->
+        <!--Navigation Controller - Feature-->
         <scene sceneID="gA5-XR-aUM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Vb7-Wi-t6V" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Thumbnail" id="Uu9-fl-wLh"/>
+                    <tabBarItem key="tabBarItem" title="Feature" image="star_small.png" id="Uu9-fl-wLh"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Bee-mc-ILQ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -86,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kta-Qh-pqN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-698"/>
+            <point key="canvasLocation" x="1666" y="-698"/>
         </scene>
         <!--Show Location View Controller-->
         <scene sceneID="4Ay-8K-gx2">
@@ -117,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qot-Wl-8cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1938" y="-113"/>
+            <point key="canvasLocation" x="2302" y="-121"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="MN4-dA-LXY">
@@ -130,7 +129,7 @@
                             <imageView contentMode="scaleToFill" id="baD-us-9O6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" patternImage="D0EE0F52-E0E7-41A8-93EE-C8735950FB37" colorSpace="pattern"/>
+                                <color key="backgroundColor" patternImage="0F943CCE-74FA-4165-BE5D-B66F36E20B5C" colorSpace="pattern"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -145,13 +144,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duv-xT-DHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420" y="-113"/>
+            <point key="canvasLocation" x="2844" y="-113"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Map-->
         <scene sceneID="mQv-dS-21a">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Ggp-Rr-nj9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UdZ-AN-cdI"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="UdZ-AN-cdI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="td4-nv-7t6">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -163,10 +162,26 @@
             </objects>
             <point key="canvasLocation" x="1127" y="1289"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Navigation Controller - Favorite-->
+        <scene sceneID="PhY-Ad-NwX">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="UaA-LS-aFV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="greyheart_s.png" id="lio-13-SgA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ghr-EX-dVE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Z7Y-ZA-jZR" kind="relationship" relationship="rootViewController" id="41W-JZ-TAL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfP-40-8P1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141" y="-1315"/>
+        </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="SLo-Jv-N5i">
             <objects>
-                <tabBarController wantsFullScreenLayout="YES" definesPresentationContext="YES" id="ye0-xT-hEX" customClass="MainTabBarController" sceneMemberID="viewController">
+                <tabBarController wantsFullScreenLayout="YES" definesPresentationContext="YES" id="ye0-xT-hEX" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="DB4-vl-eOF">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -176,8 +191,8 @@
                     <connections>
                         <segue destination="Vb7-Wi-t6V" kind="relationship" relationship="viewControllers" id="TpD-VL-vpa"/>
                         <segue destination="zqz-US-lw0" kind="relationship" relationship="viewControllers" id="o7d-Xr-mX2"/>
-                        <segue destination="Vb7-Wi-t6V" kind="relationship" relationship="viewControllers" id="NkJ-hd-l5w"/>
                         <segue destination="Ggp-Rr-nj9" kind="relationship" relationship="viewControllers" id="mhe-LC-pSB"/>
+                        <segue destination="UaA-LS-aFV" kind="relationship" relationship="viewControllers" id="BS5-Vz-vJQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkd-O1-MfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,7 +210,7 @@
                             <imageView contentMode="scaleToFill" id="n7B-id-9cn">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" patternImage="EA0A2AEC-D9B1-41DF-BB62-331EE57914FD" colorSpace="pattern"/>
+                                <color key="backgroundColor" patternImage="68E3478C-49EE-4DA6-AD1C-12DFE4683297" colorSpace="pattern"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -210,11 +225,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LOk-JR-DXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850" y="495"/>
+            <point key="canvasLocation" x="1862" y="527"/>
+        </scene>
+        <!--Favorite View Controller-->
+        <scene sceneID="QqI-jj-a3w">
+            <objects>
+                <viewController id="Z7Y-ZA-jZR" customClass="FavoriteViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OGD-lU-xAI">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="rxO-Wr-XYB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LMM-0i-zff"/>
+                    <connections>
+                        <outlet property="scrollView" destination="rxO-Wr-XYB" id="mJo-PV-sKA"/>
+                        <segue destination="hHI-GT-d0e" kind="push" identifier="showPhotoDetail" id="d7G-T3-SeK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Xk-dM-EUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658" y="-1315"/>
         </scene>
     </scenes>
     <resources>
-        <image name="D0EE0F52-E0E7-41A8-93EE-C8735950FB37" width="320" height="460">
+        <image name="0F943CCE-74FA-4165-BE5D-B66F36E20B5C" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -10048,7 +10088,7 @@ CP5GAAj+TQAI/lUACP5iAAj+ZwAI/mkACP5rAAj+cAAI/ngACP57AAj+gAAI/ogACP6LAAj+nQAI/qAA
 CP6lAAAAAAAABAEAAAAAAAAAQgAAAAAAAAAAAAAAAAAI/qc
 </mutableData>
         </image>
-        <image name="EA0A2AEC-D9B1-41DF-BB62-331EE57914FD" width="320" height="460">
+        <image name="68E3478C-49EE-4DA6-AD1C-12DFE4683297" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -19882,10 +19922,17 @@ CP5GAAj+TQAI/lUACP5iAAj+ZwAI/mkACP5rAAj+cAAI/ngACP57AAj+gAAI/ogACP6LAAj+nQAI/qAA
 CP6lAAAAAAAABAEAAAAAAAAAQgAAAAAAAAAAAAAAAAAI/qc
 </mutableData>
         </image>
+        <image name="MapDrop_s.png" width="30" height="30"/>
+        <image name="globe_.png" width="30" height="30"/>
+        <image name="greyheart_s.png" width="30" height="30"/>
+        <image name="star_small.png" width="80" height="80"/>
     </resources>
     <classes>
-        <class className="MainTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTabBarController.h"/>
+        <class className="FavoriteViewController" superclassName="ThumbNailSuperViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
         </class>
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
@@ -19907,7 +19954,13 @@ CP6lAAAAAAAABAEAAAAAAAAAQgAAAAAAAAAAAAAAAAAI/qc
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="ThumbNailViewController" superclassName="UIViewController">
+        <class className="ThumbNailSuperViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThumbNailSuperViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ThumbNailViewController" superclassName="ThumbNailSuperViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ThumbNailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
@@ -19921,6 +19974,5 @@ CP6lAAAAAAAABAEAAAAAAAAAQgAAAAAAAAAAAAAAAAAI/qc
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3nT-b0-6Eh"/>
-        <segue reference="TpD-VL-vpa"/>
     </inferredMetricsTieBreakers>
 </document>

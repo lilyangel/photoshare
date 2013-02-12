@@ -2,7 +2,7 @@
 //  PhotoInfo.h
 //  Panoramio
 //
-//  Created by lily on 1/20/13.
+//  Created by lily on 2/10/13.
 //
 //
 
@@ -13,6 +13,7 @@
 
 @interface PhotoInfo : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * isFavorite;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSNumber * longtitude;
@@ -20,7 +21,7 @@
 @property (nonatomic, retain) NSString * position;
 @property (nonatomic, retain) NSString * userId;
 @property (nonatomic, retain) NSString * userName;
-@property (nonatomic, retain) NSNumber * isFavorite;
+@property (nonatomic, retain) NSData * imageData;
 @property (nonatomic, retain) PhotoOwner *whomtook;
 
 @end

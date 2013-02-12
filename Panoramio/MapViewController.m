@@ -17,26 +17,33 @@
 @property (strong, nonatomic) NSArray *annotations;
 @property NSString *photoId;
 @property Boolean isFavorite;
+@property (nonatomic) NSURLConnection *connection;
 @end
 
 @implementation MapViewController
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize annotations = _annotations;
+@synthesize mapView = _mapView;
+@synthesize connection = _connection;
 
 - (void) updateMapView{
+    @synchronized(self.mapView.annotations){
     if (self.mapView.annotations)
         [self.mapView removeAnnotations: self.mapView.annotations];
     if (self.annotations)
-        [self.mapView addAnnotations:self.annotations];
+        [self.mapView addAnnotations:self.annotations]; 
+    }
 }
 
-- (void) setMapView:(MKMapView *)mapView{
+-(void) setMapView:(MKMapView *)mapView{
     _mapView = mapView;
     [self updateMapView];
 }
 
 - (void) setAnnotations:(NSArray *)annotations{
-    _annotations = annotations;
+//    @synchronized(self.annotations){
+        _annotations = annotations;
+//    }
     [self updateMapView];
 }
 
@@ -54,7 +61,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-    [self.mapView setDelegate:self];
+    self.mapView.delegate = self;
     MKCoordinateSpan span = {.latitudeDelta =  50, .longitudeDelta =  50};
     CLLocationCoordinate2D coordinate = {.latitude= 20, .longitude= -100};
     MKCoordinateRegion region = {coordinate, span};
@@ -67,7 +74,7 @@
     UIPanGestureRecognizer* mapPan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handleMapChange:)];
     [mapPan setDelegate:self];
     [self.mapView addGestureRecognizer:mapPan]; 
-    [mapPan setDelegate:self];
+//    [mapPan setDelegate:self];
     [self updateMap];
 }
 
@@ -78,7 +85,6 @@
 
 - (void)handleMapChange:(UIGestureRecognizer*)gesture
 {
-//    NSLog(@"handle");
     if(gesture.state == UIGestureRecognizerStateEnded){
         [self updateMap];
     }
@@ -86,7 +92,7 @@
 
 - (void)updateMap
 {
-    dispatch_queue_t fetchQ = dispatch_queue_create("data fetcher", NULL);
+    //dispatch_queue_t fetchQ = dispatch_queue_create("data fetcher", NULL);
 
     CGPoint nePoint = CGPointMake(self.mapView.bounds.origin.x + self.mapView.bounds.size.width, self.mapView.bounds.origin.y);
     CGPoint swPoint = CGPointMake((self.mapView.bounds.origin.x), (self.mapView.bounds.origin.y + self.mapView.bounds.size.height));
@@ -105,25 +111,23 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    NSMutableArray *annotations = [NSMutableArray array];
-
- //   NSInteger count =  [[_fetchedResultsController.sections objectAtIndex:0] count];
-    NSInteger count = [[_fetchedResultsController fetchedObjects] count];
-    int photoNumber = MIN(15, [[_fetchedResultsController fetchedObjects] count]);
-    dispatch_async(fetchQ, ^{
-    for(int i = 0;i<photoNumber;i++){
+    
+    NSMutableArray *mutableAnnotations = [NSMutableArray array];
+    //dispatch_async(fetchQ, ^{
+        int photoNumber = MIN(5, [[_fetchedResultsController fetchedObjects] count]);
+      for(int i = 0;i<photoNumber;i++){
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
         PhotoInfo *photoInfo = [_fetchedResultsController objectAtIndexPath:indexPath];
         pointAnnotation *pointAnnt = [[pointAnnotation alloc]init];
         CLLocationCoordinate2D coordinate = {.latitude= [photoInfo.latitude doubleValue], .longitude= [photoInfo.longtitude doubleValue]};
         pointAnnt.photoId = photoInfo.photoId;
-        [annotations addObject:[pointAnnt annotationForPhotowithCoordinate:coordinate]];
-    }
-
-    self.annotations = annotations;
-    });
-    dispatch_release(fetchQ);
+        [mutableAnnotations addObject:[pointAnnt annotationForPhotowithCoordinate:coordinate]];
+      }
+    //    NSArray *inmutableAnnotations = [mutableAnnotations copy];
+      self.annotations = mutableAnnotations;
+    //});
+//    dispatch_release(fetchQ);
 }
 
 - (void)didReceiveMemoryWarning
@@ -159,13 +163,25 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    @try {
+
     MKPinAnnotationView *pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
     NSString *urlString = [NSString stringWithFormat:@"http://mw2.google.com/mw-panoramio/photos/medium/%@.jpg",((pointAnnotation*)annotation).photoId];
     NSURL *imageURL = [NSURL URLWithString: urlString];
-    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *image = [UIImage imageWithData:imageData];
-    pav.image = [self resizeImage:image newSize:CGSizeMake(40, 30)];//[UIImage imageNamed:@"location.png"];    //as suggested by Squatch
+        
+    dispatch_queue_t localQ = dispatch_queue_create("data fetcher", NULL);
+        
+    dispatch_async(localQ, ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        pav.image = [self resizeImage:image newSize:CGSizeMake(25, 20)];
+
+    });
     return pav;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"set annotations %@", exception.description);
+    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
@@ -203,5 +219,10 @@
         photoVC.photoId = self.photoId;
         photoVC.isFavorite = self.isFavorite;
     }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
 }
 @end

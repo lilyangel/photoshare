@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ThumbNailViewController : UIViewController<UIScrollViewDelegate,UIGestureRecognizerDelegate, UITabBarControllerDelegate>
+#import "ThumbNailSuperViewController.h"
+/*@interface ThumbNailViewController : UIViewController<UIScrollViewDelegate,UIGestureRecognizerDelegate, UITabBarControllerDelegate>
 @property Boolean isFavorite;
+@end
+ */
+@interface ThumbNailViewController : ThumbNailSuperViewController
+
 @end

@@ -61,7 +61,7 @@
     if (coordinator != nil) {
         managedObjectContext = [NSManagedObjectContext new];
         [managedObjectContext setPersistentStoreCoordinator: coordinator];
-        NSPersistentStore *temp= managedObjectContext.persistentStoreCoordinator.persistentStores;
+        //NSPersistentStore *temp= managedObjectContext.persistentStoreCoordinator.persistentStores;
     }
     return managedObjectContext;
 }

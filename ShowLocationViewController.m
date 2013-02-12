@@ -79,6 +79,7 @@
 
 - (void)viewDidLoad
 {
+    @try {
     [super viewDidLoad];
     self.mapView.delegate = self;
     self.mapViewSpan = 50;
@@ -102,50 +103,35 @@
     _scrollView.bouncesZoom = YES;
     _scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
     _scrollView.pagingEnabled = YES;
-//    _scrollView.alwaysBounceHorizontal = NO;
- //   _scrollView.alwaysBounceVertical = NO;
-
-        _zoomView = [[UIImageView alloc] init];
-
-    UIImageView *imageView1 =
+    _zoomView = [[UIImageView alloc] init];
+    dispatch_queue_t fetchQ = dispatch_queue_create("data fetcher", NULL);
     [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_currentDisplayPhoto];
-
-    if (imageView1 != nil) {
-        [_zoomView addSubview:imageView1];
-    }
-    
     currentPhotoIndex++;
-    int count = [[self.fetchedResultsController fetchedObjects]count];
-    if (currentPhotoIndex < [[self.fetchedResultsController fetchedObjects]count]) {
-        _pageIndex++;
-    
-        UIImageView *imageView2 = 
-        [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_currentDisplayPhoto+1];
-    
-        [_zoomView addSubview:imageView2];
-    }
-    
-//    [self prepareToResize];
-//    [self recoverFromResizing];
-    [_scrollView addSubview:_zoomView];
-    [_scrollView setContentSize:CGSizeMake(320*(_pageIndex+1), _scrollView.frame.size.height)];
-    self.offsetX = 0.0;
-    [self updateMapInfo];
-//    _scrollView.zoomScale = 0.64;
-    NSLog(@"%f",_scrollView.zoomScale);
+ //   dispatch_async(fetchQ, ^{
+
+        if (currentPhotoIndex < [[self.fetchedResultsController fetchedObjects]count]) {
+            _pageIndex++;
+            [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_currentDisplayPhoto+1];
+        }
+  //          });
+        [_scrollView addSubview:_zoomView];
+        [_scrollView setContentSize:CGSizeMake(320*(_pageIndex+1), _scrollView.frame.size.height)];
+        self.offsetX = 0.0;
+        [self updateMapInfo];
+
     self.imageTap = [[UITapGestureRecognizer alloc]
                         initWithTarget:self action:@selector(handlePhotoTap:)];
     [self.scrollView addGestureRecognizer:imageTap];
+
+    }
+    @catch (NSException *exception) {
+        @throw(@"did not load show location view. %@", exception.description);
+    }
 }
 
 -(void)handlePhotoTap: (UIGestureRecognizer*) gesture
 {
     [self performSegueWithIdentifier:@"ShowPhoto" sender:self];
-}
-
--(void)displayPhotoInArea: (UIGestureRecognizer*) gesture
-{
-    
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -183,6 +169,7 @@
     PhotoInfo *photoInfo = [_fetchedResultsController objectAtIndexPath:indexPath];
     NSString *urlString = [NSString stringWithFormat:@"http://mw2.google.com/mw-panoramio/photos/medium/%@.jpg",photoInfo.photoId];
     NSURL *imageURL = [NSURL URLWithString: urlString];
+    //   dispatch_async(fetchQ, ^{
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image = [UIImage imageWithData:imageData];
     return image;
@@ -193,62 +180,27 @@
     if (image == nil) {
         return nil;
     }
-    _scrollView.zoomScale = 1.0;
+//    _scrollView.zoomScale = 1.0;
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    if (image.size.height > image.size.width) {
-        float newImageWidth = image.size.width * 375/500;
-        image = [self resizeImage:image newSize:CGSizeMake(newImageWidth, 375)];
-    }
-
-    if (image.size.height > image.size.width) {
-        imageView.frame = CGRectMake(500*_pageIndex+(500-image.size.width)/2, 25, image.size.width,  image.size.height);
+    CGFloat widthScale = image.size.width/self.scrollView.bounds.size.width;
+    CGFloat heightScale = image.size.height/self.scrollView.bounds.size.height;
+    NSInteger newImageHeight, newImageWidth;
+    if (widthScale>=heightScale) {
+        newImageHeight = self.scrollView.bounds.size.height*(self.scrollView.bounds.size.width/image.size.width);
+        newImageWidth = self.scrollView.bounds.size.width;
     }else{
-        imageView.frame = CGRectMake(500*_pageIndex, 25, image.size.width,  image.size.height);
+        newImageHeight = self.scrollView.bounds.size.height;
+        newImageWidth = self.scrollView.bounds.size.width*(self.scrollView.bounds.size.height/image.size.height);
     }
-
-//    imageView.frame = CGRectMake(image.size.width*pageIndex, 25, image.size.width,  image.size.height);
-
-    [self configureForImageSize:image.size];
     
+    image = [self resizeImage:image newSize:CGSizeMake(newImageWidth, newImageHeight)];
+    if (widthScale>=heightScale) {
+        imageView.frame = CGRectMake(self.scrollView.bounds.size.width*_pageIndex,(self.scrollView.bounds.size.height- newImageHeight)/2, newImageWidth, newImageHeight);
+    }else{
+        imageView.frame = CGRectMake(self.scrollView.bounds.size.width*_pageIndex+(self.scrollView.bounds.size.width - newImageWidth)/2, 0, newImageWidth, newImageHeight);
+    }
+    [_zoomView addSubview: imageView];
     return imageView;
-
-}
-
-- (void)configureForImageSize:(CGSize)imageSize
-{
-    _imageSize = imageSize;
-//    _scrollView.contentSize = imageSize;
-    [self setMaxMinZoomScalesForCurrentBounds];
-//    _scrollView.zoomScale = _scrollView.minimumZoomScale;
-    _scrollView.zoomScale = 0.64;
-   // _scrollView.zoomScale = 0.3;
-}
-
-- (void)setMaxMinZoomScalesForCurrentBounds
-{
-    CGSize boundsSize = _scrollView.bounds.size;
-    //    CGSize boundsSize = CGSizeMake(self.bounds.size.height/2, self.bounds.size.width);
-    // calculate min/max zoomscale
-    CGFloat xScale = boundsSize.width  / _imageSize.width;    // the scale needed to perfectly fit the image width-wise
-    CGFloat yScale = boundsSize.height / _imageSize.height;   // the scale needed to perfectly fit the image height-wise
-    
-    // fill width if the image and phone are both portrait or both landscape; otherwise take smaller scale
-    BOOL imagePortrait = _imageSize.height > _imageSize.width;
-    BOOL phonePortrait = boundsSize.height > boundsSize.width;
-    CGFloat minScale = imagePortrait == phonePortrait ? xScale : MIN(xScale, yScale);
-    
-    // on high resolution screens we have double the pixel density, so we will be seeing every pixel if we limit the
-    // maximum zoom scale to 0.5.
-    CGFloat maxScale = 1.0 / [[UIScreen mainScreen] scale];
-    
-    // don't let minScale exceed maxScale. (If the image is smaller than the screen, we don't want to force it to be zoomed.)
-    if (minScale > maxScale) {
-        minScale = maxScale;
-    }
-    
-    _scrollView.maximumZoomScale = maxScale;
-    _scrollView.minimumZoomScale = minScale;
-    _scrollView.minimumZoomScale = 0.64;
 }
 
 - (UIImage *)resizeImage:(UIImage*)image newSize:(CGSize)newSize {
@@ -276,74 +228,6 @@
     return newImage;
 }
 
-- (void)prepareToResize
-{
-    CGPoint boundsCenter = CGPointMake(CGRectGetMidX(_scrollView.bounds), CGRectGetMidY(_scrollView.bounds));
-    _pointToCenterAfterResize = [_scrollView convertPoint:boundsCenter toView:_zoomView];
-    
-    _scaleToRestoreAfterResize = _scrollView.zoomScale;
-    
-    // If we're at the minimum zoom scale, preserve that by returning 0, which will be converted to the minimum
-    // allowable scale when the scale is restored.
-    if (_scaleToRestoreAfterResize <= _scrollView.minimumZoomScale + FLT_EPSILON)
-        _scaleToRestoreAfterResize = 0;
-}
-
-- (void)recoverFromResizing
-{
-    [self setMaxMinZoomScalesForCurrentBounds];
-    
-    // Step 1: restore zoom scale, first making sure it is within the allowable range.
- //   CGFloat maxZoomScale = MAX(_scrollView.minimumZoomScale, _scaleToRestoreAfterResize);
- //   float maxZoomScale = _scrollView.minimumZoomScale;
-    _scrollView .zoomScale = MIN(_scrollView.maximumZoomScale, _scrollView.minimumZoomScale);
-  //  _scrollView.zoomScale = maxZoomScale;
-    // Step 2: restore center point, first making sure it is within the allowable range.
-    
-    // 2a: convert our desired center point back to our own coordinate space
-//    [self makeOffset];
-}
--(void) makeOffset
-{
-    CGPoint boundsCenter = [_scrollView convertPoint:_pointToCenterAfterResize fromView:_zoomView];
-    
-    // 2b: calculate the content offset that would yield that center point
-    CGPoint offset = CGPointMake(boundsCenter.x - _scrollView.bounds.size.width / 2.0,
-                                 boundsCenter.y - _scrollView.bounds.size.height / 2.0);
-    
-    // 2c: restore offset, adjusted to be within the allowable range
-    CGPoint maxOffset = [self maximumContentOffset];
-    CGPoint minOffset = [self minimumContentOffset];
-    
-    CGFloat realMaxOffset = MIN(maxOffset.x, offset.x);
-    offset.x = MAX(minOffset.x, realMaxOffset);
-    
-    realMaxOffset = MIN(maxOffset.y, offset.y);
-    
-    offset.y = MAX(minOffset.y, realMaxOffset);
-    
-    _scrollView.contentOffset = offset;
-}
-- (CGPoint)maximumContentOffset
-{
-    CGSize contentSize = _scrollView.contentSize;
-    CGSize boundsSize = _scrollView.bounds.size;
-    //   CGSize boundsSize = CGSizeMake(self.bounds.size.height/2, self.bounds.size.width);
-    return CGPointMake(contentSize.width - boundsSize.width, contentSize.height - boundsSize.height);
-}
-
-- (CGPoint)minimumContentOffset
-{
-    return CGPointZero;
-}
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
-{
-    return _zoomView;
-    
-//    return [_scrollView.subviews objectAtIndex:0];
-}
-
 - (void) updateRegionWithCoordinate:(CLLocationCoordinate2D) coordinate{
     MKCoordinateSpan span = {.latitudeDelta =  self.mapViewSpan, .longitudeDelta =  self.mapViewSpan};
     MKCoordinateRegion region = {coordinate, span};
@@ -354,29 +238,15 @@
 {
     _scrollBeginOffset = scrollView.contentOffset.x;
 }
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"%f",_scrollView.contentOffset.x);
     if ((_scrollBeginOffset < _scrollView.contentOffset.x)&&(_scrollView.contentOffset.x != 0.0) && (_scrollView.contentOffset.x != -0.0)) {
         currentPhotoIndex++;
         _pageIndex++;
-        [_scrollView setContentSize:CGSizeMake(320*(_pageIndex+1), _scrollView.frame.size.height)];
+        [_scrollView setContentSize:CGSizeMake(self.scrollView.bounds.size.width*(_pageIndex+1), _scrollView.frame.size.height)];
         self.offsetX = _scrollView.contentOffset.x;
-        UIImage *image = [self imageAtIndex:currentPhotoIndex];
-        if (image.size.height > image.size.width) {
-            float newImageWidth = image.size.width * 375/500;
-            image = [self resizeImage:image newSize:CGSizeMake(newImageWidth, 375)];
-        }
-  //      if (image!=nil) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        if (image.size.height > image.size.width) {
-            imageView.frame = CGRectMake(500*_pageIndex+(500-image.size.width)/2, 25, image.size.width,  image.size.height);
-        }else{
-            imageView.frame = CGRectMake(500*_pageIndex, 25, image.size.width,  image.size.height);
-        }
-        [_zoomView addSubview:imageView];
-
-   //     }
+        [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_pageIndex];
         _currentDisplayPhoto++;
     }else{
         if(_currentDisplayPhoto>0){
@@ -385,7 +255,6 @@
     }
     [self updateMapInfo];
 }
-
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {

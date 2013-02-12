@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ThumbNailSuperViewController.h"
 
-@interface FavoriteViewController : UIViewController
 
+@interface FavoriteViewController : ThumbNailSuperViewController
 @end

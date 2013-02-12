@@ -76,8 +76,8 @@
     // Create and initialize the fetch results controller.
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     _fetchedResultsController.delegate = self;
-    
-    // Memory management.    
+   
+    // Memory management.
     return _fetchedResultsController;
 }    
 
