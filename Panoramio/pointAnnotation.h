@@ -11,6 +11,7 @@
 
 @interface pointAnnotation : NSObject<MKAnnotation>
 - (pointAnnotation*) annotationForPhotowithCoordinate: (CLLocationCoordinate2D)coordinate;
-@property CLLocationCoordinate2D coordinatePoint;
+@property CLLocationCoordinate2D coordinate;
 @property NSString *photoId;
+@property NSInteger *photoIndex;
 @end

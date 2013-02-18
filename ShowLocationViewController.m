@@ -10,6 +10,8 @@
 #import "FetchPhotoResult.h"
 #import "pointAnnotation.h"
 #import "PhotoViewController.h"
+#import "LocalImageManager.h"
+
 @interface ShowLocationViewController (){
     UIImageView *_zoomView;
     CGSize _imageSize;
@@ -80,49 +82,49 @@
 - (void)viewDidLoad
 {
     @try {
-    [super viewDidLoad];
-    self.mapView.delegate = self;
-    self.mapViewSpan = 50;
-    NSError *error;
-    FetchPhotoResult *fetchPhoto = [[FetchPhotoResult alloc] init];
-    if (self.photoId) {
-        fetchPhoto.photoId = self.photoId;
-    }
-    _fetchedResultsController = [fetchPhoto fetchedResultsController];
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    self.scrollView.delegate=self;
-
-    _currentDisplayPhoto = currentPhotoIndex;
-    
-    _pageIndex = 0;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.bouncesZoom = YES;
-    _scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
-    _scrollView.pagingEnabled = YES;
-    _zoomView = [[UIImageView alloc] init];
-    dispatch_queue_t fetchQ = dispatch_queue_create("data fetcher", NULL);
-    [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_currentDisplayPhoto];
-    currentPhotoIndex++;
- //   dispatch_async(fetchQ, ^{
-
+        [super viewDidLoad];
+        self.mapView.delegate = self;
+        self.mapViewSpan = 50;
+        NSError *error;
+        FetchPhotoResult *fetchPhoto = [[FetchPhotoResult alloc] init];
+        if (self.photoId) {
+            fetchPhoto.photoId = self.photoId;
+        }
+        _fetchedResultsController = [fetchPhoto fetchedResultsController];
+        if (![[self fetchedResultsController] performFetch:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        self.scrollView.delegate=self;
+        
+        _currentDisplayPhoto = currentPhotoIndex;
+        
+        _pageIndex = 0;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.bouncesZoom = YES;
+        _scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+        _scrollView.pagingEnabled = YES;
+        _zoomView = [[UIImageView alloc] init];
+        dispatch_queue_t fetchQ = dispatch_queue_create("data fetcher", NULL);
+        [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_currentDisplayPhoto];
+        currentPhotoIndex++;
+        //   dispatch_async(fetchQ, ^{
+        
         if (currentPhotoIndex < [[self.fetchedResultsController fetchedObjects]count]) {
             _pageIndex++;
             [self displayImage:[self imageAtIndex:currentPhotoIndex] withPageIndex:_currentDisplayPhoto+1];
         }
-  //          });
+        //          });
         [_scrollView addSubview:_zoomView];
         [_scrollView setContentSize:CGSizeMake(320*(_pageIndex+1), _scrollView.frame.size.height)];
         self.offsetX = 0.0;
         [self updateMapInfo];
-
-    self.imageTap = [[UITapGestureRecognizer alloc]
-                        initWithTarget:self action:@selector(handlePhotoTap:)];
-    [self.scrollView addGestureRecognizer:imageTap];
-
+        
+        self.imageTap = [[UITapGestureRecognizer alloc]
+                         initWithTarget:self action:@selector(handlePhotoTap:)];
+        [self.scrollView addGestureRecognizer:imageTap];
+        
     }
     @catch (NSException *exception) {
         @throw(@"did not load show location view. %@", exception.description);
@@ -167,11 +169,21 @@
         return nil;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:photoIndex inSection:0];
     PhotoInfo *photoInfo = [_fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *urlString = [NSString stringWithFormat:@"http://mw2.google.com/mw-panoramio/photos/medium/%@.jpg",photoInfo.photoId];
-    NSURL *imageURL = [NSURL URLWithString: urlString];
-    //   dispatch_async(fetchQ, ^{
-    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *image = [UIImage imageWithData:imageData];
+    UIImage *image;
+    NSData *getLocalData = [LocalImageManager getLocalImageByPhotoId:photoInfo.photoId];
+    if (getLocalData == nil) {
+//    if (photoInfo.imageData != nil) {
+//        image = [UIImage imageWithData:photoInfo.imageData];
+        image = [UIImage imageWithData:getLocalData];
+    }else{
+
+        NSString *urlString = [NSString stringWithFormat:@"http://mw2.google.com/mw-panoramio/photos/medium/%@.jpg",photoInfo.photoId];
+        NSURL *imageURL = [NSURL URLWithString: urlString];
+        //   dispatch_async(fetchQ, ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        image = [UIImage imageWithData:imageData];
+        [LocalImageManager saveLocalImageByPhotoId:photoInfo.photoId withImage:image];
+    }
     return image;
 }
 
@@ -180,7 +192,7 @@
     if (image == nil) {
         return nil;
     }
-//    _scrollView.zoomScale = 1.0;
+    //    _scrollView.zoomScale = 1.0;
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     CGFloat widthScale = image.size.width/self.scrollView.bounds.size.width;
     CGFloat heightScale = image.size.height/self.scrollView.bounds.size.height;
@@ -267,13 +279,14 @@
 {
     NSMutableArray *annotations = [NSMutableArray array];
     pointAnnotation *pointAnnt = [[pointAnnotation alloc]init];
-    [annotations addObject:[pointAnnt annotationForPhotowithCoordinate:coordinate]];
+    pointAnnt.coordinate = coordinate;
+    [annotations addObject:pointAnnt];
     return annotations;
 }
 
 - (void*) updateMapInfo
 {
-//    NSInteger currentPhotoIndex = _scrollView.contentOffset.x/_scrollView.frame.size.width;
+    //    NSInteger currentPhotoIndex = _scrollView.contentOffset.x/_scrollView.frame.size.width;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_currentDisplayPhoto inSection:0];
     PhotoInfo *photoInfo = [_fetchedResultsController objectAtIndexPath:indexPath];
     NSArray *components = [photoInfo.position componentsSeparatedByString:@","];

@@ -10,6 +10,7 @@
 #import "FetchPhotoResult.h"
 #import "pointAnnotation.h"
 #import "PhotoViewController.h"
+#import "LocalImageManager.h"
 
 @interface MapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -41,9 +42,9 @@
 }
 
 - (void) setAnnotations:(NSArray *)annotations{
-//    @synchronized(self.annotations){
+    @synchronized(self.annotations){
         _annotations = annotations;
-//    }
+    }
     [self updateMapView];
 }
 
@@ -114,7 +115,7 @@
     
     NSMutableArray *mutableAnnotations = [NSMutableArray array];
     //dispatch_async(fetchQ, ^{
-        int photoNumber = MIN(5, [[_fetchedResultsController fetchedObjects] count]);
+        int photoNumber = MIN(9, [[_fetchedResultsController fetchedObjects] count]);
       for(int i = 0;i<photoNumber;i++){
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         
@@ -122,7 +123,11 @@
         pointAnnotation *pointAnnt = [[pointAnnotation alloc]init];
         CLLocationCoordinate2D coordinate = {.latitude= [photoInfo.latitude doubleValue], .longitude= [photoInfo.longtitude doubleValue]};
         pointAnnt.photoId = photoInfo.photoId;
-        [mutableAnnotations addObject:[pointAnnt annotationForPhotowithCoordinate:coordinate]];
+          pointAnnt.photoIndex = i;
+          pointAnnt.coordinate = coordinate;
+ //       [mutableAnnotations addObject:[pointAnnt annotationForPhotowithCoordinate:coordinate]];
+          [mutableAnnotations addObject:pointAnnt];
+
       }
     //    NSArray *inmutableAnnotations = [mutableAnnotations copy];
       self.annotations = mutableAnnotations;
@@ -166,6 +171,17 @@
     @try {
 
     MKPinAnnotationView *pav = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:nil];
+        NSString *photoId = ((pointAnnotation*)annotation).photoId;
+        int index = ((pointAnnotation*)annotation).photoIndex;
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:((pointAnnotation*)annotation).photoIndex inSection:0];
+        PhotoInfo *annotationPhoto = [_fetchedResultsController objectAtIndexPath:indexPath];
+        
+//        NSData* imageData = [LocalImageManager getLocalImageByPhotoId: photoId];
+        NSData* imageData = annotationPhoto.imageData;
+        if (imageData != nil) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            pav.image = [self resizeImage:image newSize:CGSizeMake(25, 20)];
+        }else {
     NSString *urlString = [NSString stringWithFormat:@"http://mw2.google.com/mw-panoramio/photos/medium/%@.jpg",((pointAnnotation*)annotation).photoId];
     NSURL *imageURL = [NSURL URLWithString: urlString];
         
@@ -175,8 +191,9 @@
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         UIImage *image = [UIImage imageWithData:imageData];
         pav.image = [self resizeImage:image newSize:CGSizeMake(25, 20)];
-
+        [LocalImageManager saveLocalImageByPhotoId:photoId withImage:image];
     });
+        }
     return pav;
     }
     @catch (NSException *exception) {

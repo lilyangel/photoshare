@@ -12,6 +12,4 @@
 @interface ShowLocationViewController : UIViewController<UIScrollViewDelegate,UIGestureRecognizerDelegate, MKMapViewDelegate>
 @property int currentPhotoIndex;
 @property (nonatomic, readwrite) NSString * photoId;
-
-//@property int photoId;
 @end

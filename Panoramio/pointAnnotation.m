@@ -9,21 +9,26 @@
 #import "pointAnnotation.h"
 
 @implementation pointAnnotation
-@synthesize coordinatePoint;
+@synthesize coordinate;
 @synthesize photoId;
+@synthesize photoIndex;
 
+/*
 - (pointAnnotation*) annotationForPhotowithCoordinate:(CLLocationCoordinate2D)coordinate
 {
     pointAnnotation *annotation = [[pointAnnotation alloc] init];
-    annotation.coordinatePoint = coordinate;
+    annotation.coordinate = coordinate;
     annotation.photoId = photoId;
     return annotation;
 }
 
 -(CLLocationCoordinate2D)coordinate{
-    CLLocationCoordinate2D coordinate;
-    coordinate = self.coordinatePoint;
-    return coordinate;
+    return self.coordinate;
 }
 
+
+-(void) setCoordinate: (CLLocationCoordinate2D)coordinate{
+    self.coordinate = coordinate;
+}
+*/
 @end

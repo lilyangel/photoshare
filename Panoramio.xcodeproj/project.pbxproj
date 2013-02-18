@@ -10,10 +10,10 @@
 		2A029BC816C7552900E74DFF /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A029BC716C7552900E74DFF /* FavoriteViewController.m */; };
 		2A029BD116C75F6100E74DFF /* ThumbNailSuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A029BD016C75F6100E74DFF /* ThumbNailSuperViewController.m */; };
 		2A029BD616C84D9E00E74DFF /* PhotoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A029BD516C84D9E00E74DFF /* PhotoInfo.m */; };
-		2A029BD816C9A94500E74DFF /* PhotoInfo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A029BD716C9A94500E74DFF /* PhotoInfo.sqlite */; };
 		2A08A47916A3DFDB0005359F /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A08A47816A3DFDB0005359F /* PhotoViewController.m */; };
 		2A08A48616A5E8FE0005359F /* PhotoScheme.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 2A08A48516A5E8FE0005359F /* PhotoScheme.xcdatamodel */; };
 		2A08A48C16A5FD2A0005359F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A08A48B16A5FD2A0005359F /* MapViewController.m */; };
+		2A6EC24516D29CCF00C1AD8B /* PhotoInfo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A6EC24416D29CCE00C1AD8B /* PhotoInfo.sqlite */; };
 		2A83526F16C38ADE00857D2C /* ThumbnailNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A83526E16C38ADE00857D2C /* ThumbnailNavController.m */; };
 		2A83527216C3907300857D2C /* UINavigationController+iosRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A83527116C3907300857D2C /* UINavigationController+iosRotation.m */; };
 		2A84EFD416C9D15000E35F2C /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A84EFD316C9D15000E35F2C /* globe.png */; };
@@ -38,6 +38,7 @@
 		2AAEF01516B72C420028215C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAEF01416B72C420028215C /* Social.framework */; };
 		2ACB54D416C1B7F8002BD030 /* ActionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ACB54D316C1B7F8002BD030 /* ActionButton.png */; };
 		2AD1BA0716993744001593CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AD1BA0616993744001593CD /* Default-568h@2x.png */; };
+		2AD5EDFA16CEFB9A003E08F6 /* LocalImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5EDF916CEFB9A003E08F6 /* LocalImageManager.m */; };
 		2AE3B91216CAAAE1008FAE37 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE3B91116CAAAE0008FAE37 /* pin.png */; };
 		2AE3B91416CAB12B008FAE37 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE3B91316CAB12B008FAE37 /* arrow_down.png */; };
 		2AE6878D16C0CF740073AE48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AE6878C16C0CF740073AE48 /* InfoPlist.strings */; };
@@ -65,12 +66,12 @@
 		2A029BD016C75F6100E74DFF /* ThumbNailSuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbNailSuperViewController.m; sourceTree = "<group>"; };
 		2A029BD416C84D9E00E74DFF /* PhotoInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoInfo.h; sourceTree = "<group>"; };
 		2A029BD516C84D9E00E74DFF /* PhotoInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoInfo.m; sourceTree = "<group>"; };
-		2A029BD716C9A94500E74DFF /* PhotoInfo.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = PhotoInfo.sqlite; path = Panoramio/PhotoInfo.sqlite; sourceTree = "<group>"; };
 		2A08A47716A3DFDB0005359F /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		2A08A47816A3DFDB0005359F /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		2A08A48516A5E8FE0005359F /* PhotoScheme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoScheme.xcdatamodel; sourceTree = "<group>"; };
 		2A08A48A16A5FD290005359F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		2A08A48B16A5FD2A0005359F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		2A6EC24416D29CCE00C1AD8B /* PhotoInfo.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = PhotoInfo.sqlite; path = Panoramio/PhotoInfo.sqlite; sourceTree = "<group>"; };
 		2A83526D16C38ADE00857D2C /* ThumbnailNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailNavController.h; sourceTree = "<group>"; };
 		2A83526E16C38ADE00857D2C /* ThumbnailNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailNavController.m; sourceTree = "<group>"; };
 		2A83527016C3907300857D2C /* UINavigationController+iosRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+iosRotation.h"; sourceTree = "<group>"; };
@@ -98,6 +99,8 @@
 		2ACB54CE16C0DC13002BD030 /* Panoramio-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Panoramio-Prefix.pch"; sourceTree = "<group>"; };
 		2ACB54D316C1B7F8002BD030 /* ActionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionButton.png; sourceTree = "<group>"; };
 		2AD1BA0616993744001593CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2AD5EDF816CEFB9A003E08F6 /* LocalImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalImageManager.h; sourceTree = "<group>"; };
+		2AD5EDF916CEFB9A003E08F6 /* LocalImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalImageManager.m; sourceTree = "<group>"; };
 		2AE3B91116CAAAE0008FAE37 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		2AE3B91316CAB12B008FAE37 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
 		2AE6878C16C0CF740073AE48 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -152,9 +155,9 @@
 		2CFF27A316964EED003F0CA5 = {
 			isa = PBXGroup;
 			children = (
+				2A6EC24416D29CCE00C1AD8B /* PhotoInfo.sqlite */,
 				2AE3B91116CAAAE0008FAE37 /* pin.png */,
 				2A84EFDB16C9D88900E35F2C /* us_app_icon.png */,
-				2A029BD716C9A94500E74DFF /* PhotoInfo.sqlite */,
 				2A83527016C3907300857D2C /* UINavigationController+iosRotation.h */,
 				2A83527116C3907300857D2C /* UINavigationController+iosRotation.m */,
 				2AAE9B1716B89BBF0013F0E8 /* MessageUI.framework */,
@@ -201,6 +204,8 @@
 				2A08A48516A5E8FE0005359F /* PhotoScheme.xcdatamodel */,
 				2CFF27E81696562B003F0CA5 /* ShowLocationViewController.h */,
 				2CFF27E91696562B003F0CA5 /* ShowLocationViewController.m */,
+				2AD5EDF816CEFB9A003E08F6 /* LocalImageManager.h */,
+				2AD5EDF916CEFB9A003E08F6 /* LocalImageManager.m */,
 				2CFF27C116964EEE003F0CA5 /* PlanetViewAppDelegate.h */,
 				2CFF27C216964EEE003F0CA5 /* PlanetViewAppDelegate.m */,
 				2CFF27EB16965756003F0CA5 /* FetchPhotoResult.h */,
@@ -314,7 +319,6 @@
 				2AAEF00F16B72BC10028215C /* FacebookSDKResources.bundle in Resources */,
 				2AE6878D16C0CF740073AE48 /* InfoPlist.strings in Resources */,
 				2ACB54D416C1B7F8002BD030 /* ActionButton.png in Resources */,
-				2A029BD816C9A94500E74DFF /* PhotoInfo.sqlite in Resources */,
 				2A84EFD416C9D15000E35F2C /* globe.png in Resources */,
 				2A84EFD616C9D16100E35F2C /* location_small.png in Resources */,
 				2A84EFD816C9D17600E35F2C /* star_small.png in Resources */,
@@ -328,6 +332,7 @@
 				2A84EFEA16C9EF7100E35F2C /* MapDrop_s.png in Resources */,
 				2AE3B91216CAAAE1008FAE37 /* pin.png in Resources */,
 				2AE3B91416CAB12B008FAE37 /* arrow_down.png in Resources */,
+				2A6EC24516D29CCF00C1AD8B /* PhotoInfo.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +374,7 @@
 				2A029BC816C7552900E74DFF /* FavoriteViewController.m in Sources */,
 				2A029BD116C75F6100E74DFF /* ThumbNailSuperViewController.m in Sources */,
 				2A029BD616C84D9E00E74DFF /* PhotoInfo.m in Sources */,
+				2AD5EDFA16CEFB9A003E08F6 /* LocalImageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
